@@ -1,0 +1,37 @@
+{
+  "name": "booking-api",
+  "version": "1.0.0",
+  "description": "This project's aim is to design and develop a RESTful API for an online booking app using Express.js and Prisma",
+  "type": "module",
+  "main": "index.js",
+  "prisma": {
+    "seed": "node ./prisma/seed.js"
+  },
+  "scripts": {
+    "dev": "nodemon index.js && npm run sentry:sourcemaps",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org backend-winc-course --project node-express-prisma  && sentry-cli sourcemaps upload --org backend-winc-course --project node-express-prisma ",
+    "test-positive": "newman run \"./postman/collections/Bookings API.json\" -e \"./postman/environments/Local.postman_environment.json\"",
+    "test-negative": "newman run \"./postman/collections/Bookings API Negative.json\" -e \"./postman/environments/Local.postman_environment.json\"",
+    "test": "npm run test-positive && npm run test-negative"
+  },
+  "author": "soukaina zekri",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.15.0",
+    "@sentry/cli": "^2.32.1",
+    "@sentry/node": "^8.9.0",
+    "@sentry/profiling-node": "^8.9.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-oauth2-jwt-bearer": "^1.6.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.1.3",
+    "prisma": "^5.15.0",
+    "uuid": "^10.0.0",
+    "winston": "^3.13.0"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.0"
+  }
+}

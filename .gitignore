@@ -1,0 +1,17 @@
+node_modules
+node_modules 2
+
+.env
+# Sentry Config File
+.sentryclirc
+
+Notes.md
+
+
+
+*.log
+logs/
+error.log
+combined.log
+
+advancedIndex.js
